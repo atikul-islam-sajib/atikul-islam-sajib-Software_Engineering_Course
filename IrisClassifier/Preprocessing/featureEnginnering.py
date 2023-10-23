@@ -35,6 +35,10 @@ class preprocess:
 
     def _drop_column(self, dataset=None):
         dataset.drop(['Id'], axis=1, inplace = True)
+    
+    # Side effect free functions
+    def _drop_feature(self, dataset = None):
+        return dataset.drop(['Id'], axis = 1)
 
     # Closures + Function as return values
     def _do_encoding_and_scaling(self, dataset=None):
