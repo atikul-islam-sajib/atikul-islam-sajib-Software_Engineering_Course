@@ -165,6 +165,7 @@ if __name__ == "__main__":
 
     # Ignore the specific warning about the deprecated softmax dimension choice
     warnings.filterwarnings("ignore")
-    trainer = Trainer(epochs = 60, model = model, train_loader = train_loader, val_loader = test_loader)
+    trainer = Trainer(epochs = 500, model = model, train_loader = train_loader, val_loader = test_loader)
     trainer.train()
     trainer.model_performane()
+    trainer.model_evaluate(dataloader = test_loader, model = model)

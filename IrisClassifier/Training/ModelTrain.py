@@ -6,6 +6,7 @@ import torch.functional as F
 import torch.optim as optim
 import matplotlib.pyplot as plt
 from sklearn.metrics import accuracy_score
+from Evaluation.evaluate_metrics import modeleEvaluate
 
 
 class Trainer:
@@ -166,6 +167,10 @@ class Trainer:
         axes[1].set_title('train and test accuracy')
         
         plt.show()
+    
+    def model_evaluate(self, dataloader = None, model = None):
+        evaluation = modeleEvaluate(dataloader = dataloader, model = model)
+        evaluation._evaluate()
 
 plt.show()
             
