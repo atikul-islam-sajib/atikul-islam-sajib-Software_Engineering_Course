@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: Iclassifier
+Version: 0.1.0
+Summary: A deep learning project that is build for predicting the iris dataset
+Home-page: https://github.com/atikul-islam-sajib/atikul-islam-sajib-Software_Engineering_Course
+Author: Atikul Islam Sajib
+Author-email: atikul.sajib@ptb.de
+Project-URL: Bug Tracker, https://github.com/atikul-islam-sajib/atikul-islam-sajib-Software_Engineering_Course/issues
+Project-URL: Documentation, https://github.com/atikul-islam-sajib/atikul-islam-sajib-Software_Engineering_Course/blob/main/README.md
+Project-URL: Source Code, https://github.com/atikul-islam-sajib/atikul-islam-sajib-Software_Engineering_Course
+Keywords: Mnist classification machine-learning
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+License-File: LICENSE
+Requires-Dist: numpy>=1.0
+Requires-Dist: torch>=1.0
+Requires-Dist: scikit-learn>=0.0.1
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: opencv-python
+Requires-Dist: zipfile36
+Requires-Dist: matplotlib
