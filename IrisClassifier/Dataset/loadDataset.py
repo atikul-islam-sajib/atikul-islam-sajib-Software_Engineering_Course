@@ -153,6 +153,7 @@ class loadDataset:
         return TRAIN_LOADER, VAL_LOADER
 
 
+
 if __name__ == "__main__":
     dataset = loadDataset(dataFrame="D:/IrisClassifier/Iris.csv")
     plot1, plot2 = dataset.display()
