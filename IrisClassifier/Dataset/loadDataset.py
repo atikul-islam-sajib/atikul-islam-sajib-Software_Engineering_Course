@@ -133,6 +133,7 @@ class loadDataset:
         )
         self.dataFrame = scaling_dataset(new_dataset)
         
+        
         # Display the dataset
         self._show_dataset(dataset=self.dataFrame)
         

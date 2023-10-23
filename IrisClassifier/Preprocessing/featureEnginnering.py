@@ -30,7 +30,7 @@ class preprocess:
             # self.new_dataset = self._do_encoding(dataset = self.datFrame)
         else:
             raise "Data Frame should be in the pandas dataframe".title()
-
+    # Closures + Function as return values
     def _do_encoding_and_scaling(self, dataset=None):
         if dataset is not None:
             # Do the encoding for the target feature
@@ -50,7 +50,46 @@ class preprocess:
 
             return dataset, scaling
         else:
-            raise "dataset is empty while calling ecoding".title()
+            raise "dataset is empty while calling ecoding".title()    
+    """
+        Specific traget class extraction
+        
+        Parameters:
+        -----------
+            X : list or array like
+                The independent features
+            y : list or array like
+                The dependent features
+            
+        Returns:
+        --------
+        filter_X : list
+            It determines the independent features based on filter
+        filter_y : list
+            It determines the dependent features based on fileter
+    """
+    # Gigher order functions
+    def _specific_target_class(self, X, y, func):
+        # Take the target columns
+        target_class = self.dataFrame.iloc[:, -1].unique()
+        # to filter the pairs
+        filter_data = filter(func(target_class), zip(X, y))
+        filter_X, filter_y = zip(*filter_data)
+        
+        return filter_X, filter_y
+    
+    def _filter_target_class(self, target_class):
+        # Return the filter by target class 
+        return lambda data : data[1] in target_class
+
+    def _train_test_split_filter(self, dataset = None):
+        # Split the data into independent & dependent
+        X = dataset.iloc[:, :-1].values
+        y = dataset.iloc[:, -1].values
+        # If we want filter based target class
+        filter_X, filter_y = self._filter_target_class(X, y, self._filter_target_class)
+        
+        return filter_X, filter_y
     """
     Split the dataset into train and test
     
@@ -66,7 +105,6 @@ class preprocess:
         X_test  : The feature of testing set
         y_test  : The feature of testing set
     """
-
     def _train_test_split(self, dataset=None):
         try:
             X = dataset.iloc[:, :-1].values

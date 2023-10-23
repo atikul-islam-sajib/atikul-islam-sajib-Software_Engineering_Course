@@ -145,7 +145,7 @@ class ANN(nn.Module):
                     print("Layer # {} & trainable parameters # {} ".format(layer_name, params.numel()))
                     TOTAL_PARAMS.append(params.numel())
             print("\n", "_" * 50, '\n')
-            total_trainable_parameters = sum(map(int, TOTAL_PARAMS))
+            total_trainable_parameters = sum(map(lambda x: x, TOTAL_PARAMS))
             print("Total trainable parameters # {} ".format(total_trainable_parameters).upper(), '\n\n')
 
 
