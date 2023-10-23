@@ -4,9 +4,8 @@ import os
 
 sys.path.append("D:/IrisClassifier/IrisClassifier")
 
-from Preprocessing.featureEnginnering import preprocess
 from Analysis.EDA import DataVisualizer
-
+from Preprocessing.featureEnginnering import preprocess
 
 
 class loadDataset:
@@ -103,6 +102,22 @@ class loadDataset:
 
         return plot1, plot2
 
+    def _print_statement(self, X_train, X_test, y_train, y_test, train_loader):
+        
+        print("\n")
+        print("X_train shape # {} ".format(X_train.shape), '\n')
+        print("y_train shape # {} ".format(y_train.shape), '\n')
+        print("X_test shape  # {} ".format(X_test.shape), '\n')
+        print("y_test shape  # {} ".format(y_test.shape), '\n')
+
+        train_data, train_label = next(iter(train_loader))
+
+        print("Batch size # {} ".format(train_loader.batch_size), '\n')
+        print("Train data shape with single batch_size  # {} ".format(
+            train_data.shape), '\n')
+        print("Train label shape with single batch_size # {} ".format(
+            train_label.shape), '\n')
+
     def preprocess_data(self):
         """
         Preprocess the data by encoding the target columns and scaling
@@ -116,22 +131,22 @@ class loadDataset:
         new_dataset, scaling_dataset = self.data_preprocessing._do_encoding_and_scaling(
             dataset=self.dataFrame
         )
-
         self.dataFrame = scaling_dataset(new_dataset)
-
+        
+        # Display the dataset
         self._show_dataset(dataset=self.dataFrame)
         
-        X_train, y_train, X_test, y_test = self.data_preprocessing._train_test_split(dataset = self.dataFrame)
+        # Split the dataset train and test with respect to Torch
+        X_train, X_test, y_train, y_test, TRAIN_LOADER, VAL_LOADER = self.data_preprocessing._train_test_split(
+            dataset=self.dataFrame)
         
-        print("X_train shape # {} ".format(X_train.shape),'\n')
-        print("y_train shape # {} ".format(y_train.shape),'\n')
-        print("X_test shape  # {} ".format(X_test.shape),'\n')
-        print("y_test shape  # {} ".format(y_test.shape),'\n')
+        # Display the train and test split result
+        self._print_statement(X_train, X_test, y_train, y_test, TRAIN_LOADER)
 
-        return self.dataFrame
+        return TRAIN_LOADER, VAL_LOADER
 
 
 if __name__ == "__main__":
     dataset = loadDataset(dataFrame="D:/IrisClassifier/Iris.csv")
     plot1, plot2 = dataset.display()
-    new_dataset = dataset.preprocess_data()
+    train_loader, test_loader = dataset.preprocess_data()
