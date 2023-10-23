@@ -4,6 +4,7 @@ import torch
 import torch.nn as nn
 import torch.functional as F
 import torch.optim as optim
+import matplotlib.pyplot as plt
 from sklearn.metrics import accuracy_score
 
 
@@ -152,6 +153,21 @@ class Trainer:
                           train_accuracy=train_accuracy,
                           VAL_LOSS=VAL_LOSS,
                           test_accuracy=test_accuracy)
+    
+    def model_performane(self):
+        fig, axes = plt.subplots(1, 2)
+
+        axes[0].plot(self.history['loss'], label = 'train_loss')
+        axes[0].plot(self.history['val_loss'], label = 'val_loss')
+        axes[0].set_title('train and test loss')
+
+        axes[1].plot(self.history['accuracy'], label = 'train_accuracy')
+        axes[1].plot(self.history['val_accuracy'], label = 'val_accuracy')
+        axes[1].set_title('train and test accuracy')
+        
+        plt.show()
+
+plt.show()
             
 if __name__ == "__main__":
     # trainer = Trainer(epochs = 20, model = model, train_loader = train_loader, val_loader = test_loader)
