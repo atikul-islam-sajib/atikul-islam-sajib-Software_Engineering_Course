@@ -104,9 +104,9 @@ class Trainer:
     def _display(self, epoch=None, TRAIN_LOSS=None, train_accuracy=None, VAL_LOSS=None, test_accuracy=None):
 
         print("Epoch {}/{} ".format(epoch, self.EPOCHS))
-        print("[==========] loss - {} accuracy - {} - val_loss - {} val_accuracy - {} ".format(TRAIN_LOSS,
+        print("[==========] loss - {} accuracy - {} - val_loss - {} val_accuracy - {} ".format(np.array(TRAIN_LOSS).mean(),
                                                                                                train_accuracy,
-                                                                                               VAL_LOSS,
+                                                                                               np.array(VAL_LOSS).mean(),
                                                                                                test_accuracy))
     """
     Train the neural networks

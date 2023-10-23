@@ -136,7 +136,7 @@ class ANN(nn.Module):
             raise Exception("Model is not found !")
         else:
             print("\nModel architecture\n".upper())
-            print(model.parameters)
+            print(self.model.parameters)
             print("\n", "_" * 50, "\n")
 
             TOTAL_PARAMS = []

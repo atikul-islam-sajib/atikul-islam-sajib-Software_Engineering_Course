@@ -7,6 +7,9 @@ sys.path.append("D:/IrisClassifier/IrisClassifier")
 from Analysis.EDA import DataVisualizer
 from Preprocessing.featureEnginnering import preprocess
 
+# This is for check
+from Model.classifier import ANN
+from Training.ModelTrain import Trainer
 
 class loadDataset:
     """
@@ -80,7 +83,7 @@ class loadDataset:
         return : object
             The result of the visualization function
     """
-
+    # Functions as parameters(83-103)
     def _show_visualization(self, func, plot):
         return func(plot)
 
@@ -120,6 +123,7 @@ class loadDataset:
 
     def preprocess_data(self):
         """
+        Drop the Id feature from the dataset
         Preprocess the data by encoding the target columns and scaling
 
         Returns:
@@ -128,6 +132,8 @@ class loadDataset:
             The preprocessed DataFrame with the encoded target columns and scaled
 
         """
+        self.data_preprocessing._drop_column(dataset = self.dataFrame)
+        
         new_dataset, scaling_dataset = self.data_preprocessing._do_encoding_and_scaling(
             dataset=self.dataFrame
         )
@@ -151,3 +157,13 @@ if __name__ == "__main__":
     dataset = loadDataset(dataFrame="D:/IrisClassifier/Iris.csv")
     plot1, plot2 = dataset.display()
     train_loader, test_loader = dataset.preprocess_data()
+    
+    # This is for check
+    model = ANN()
+    model.total_trainable_parameters()
+    import warnings
+
+    # Ignore the specific warning about the deprecated softmax dimension choice
+    warnings.filterwarnings("ignore")
+    trainer = Trainer(epochs = 60, model = model, train_loader = train_loader, val_loader = test_loader)
+    trainer.train()
