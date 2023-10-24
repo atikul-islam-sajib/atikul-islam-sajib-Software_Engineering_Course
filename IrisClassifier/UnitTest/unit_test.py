@@ -8,11 +8,12 @@ warnings.filterwarnings("ignore")
 
 sys.path.append("D:/IrisClassifier/IrisClassifier")
 
-from Analysis.EDA import DataVisualizer
-from Preprocessing.featureEnginnering import preprocess
-from Dataset.loadDataset import loadDataset
-from Model.classifier import ANN
 from Training.ModelTrain import Trainer
+from Model.classifier import ANN
+from Dataset.loadDataset import loadDataset
+from Preprocessing.featureEnginnering import preprocess
+from Analysis.EDA import DataVisualizer
+
 
 class UnitTesting(unittest.TestCase):
     """A class for unit testing the IrisClassifier project"""
@@ -70,6 +71,14 @@ class UnitTesting(unittest.TestCase):
         captured_output = captured_output.strip()
 
         self.assertEqual(captured_output, expected_output)
+
+    """"Test the evaluation with None as a validation data loader"""
+
+    def test_evaluation_with_valid(self):
+        self.test_loader = not None
+        with self.assertRaises(Exception):
+            self.trainer.model_evaluate(
+                dataloader=self.test_loader, model=self.model)
 
 
 if __name__ == "__main__":
