@@ -170,9 +170,12 @@ class Trainer:
     
     def model_evaluate(self, dataloader = None, model = None):
         evaluation = modeleEvaluate(dataloader = dataloader, model = model)
-        evaluation._evaluate()
-
-plt.show()
+        evaluation._display_metrics_and_report()
+    
+    def get_metrics(self, dataloader = None, model = None):
+        evaluation = modeleEvaluate(dataloader = dataloader, model = model)
+        accuracy, precision, recall, f1, predict, actual = evaluation._evaluate()
+        return accuracy, precision, recall, f1, predict, actual 
             
 if __name__ == "__main__":
     # trainer = Trainer(epochs = 20, model = model, train_loader = train_loader, val_loader = test_loader)

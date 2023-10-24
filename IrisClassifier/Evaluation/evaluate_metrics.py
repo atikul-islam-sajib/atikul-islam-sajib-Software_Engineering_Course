@@ -19,6 +19,10 @@ class modeleEvaluate:
         if isinstance(dataloader, torch.utils.data.dataloader.DataLoader):
             self.dataloader = dataloader
             self.model = model
+            self.accuracy = None
+            self.precision = None
+            self.recall = None
+            self.f1 = None
         else:
             raise "dataloader should be in the torch dataloader format".title()
     """
@@ -182,13 +186,18 @@ class modeleEvaluate:
 
             accuracy, precision, recall, f1 = self._evaluation_metrics(
                 predict=predict, actual=actual)
-            self._display(metrics=zip([accuracy], [precision], [recall], [f1]))
-
-            print("\nThe classification report is given below.\n")
-            self._classification_report_show(predict=predict, actual=actual)
+            
+            return accuracy, precision, recall, f1, predict, actual
 
         else:
             raise "data loader should be in the torch form"
+
+    def _display_metrics_and_report(self):
+        accuracy, precision, recall, f1, predict, actual = self._evaluate()
+        self._display(metrics=zip([accuracy], [precision], [recall], [f1]))
+
+        print("\nThe classification report is given below.\n")
+        self._classification_report_show(predict=predict, actual=actual)
 
 
 if __name__ == "__main__":

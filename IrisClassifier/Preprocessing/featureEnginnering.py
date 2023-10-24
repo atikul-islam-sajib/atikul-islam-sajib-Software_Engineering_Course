@@ -142,9 +142,9 @@ class preprocess:
                 data=X_test, dtype=torch.float32)
 
             TRAIN_LOADER = DataLoader(
-                dataset=list(zip(X_train, y_train)), batch_size=16, shuffle=True)
+                dataset=list(zip(X_train, y_train)), batch_size=32, shuffle=True)
             VAL_LOADER = DataLoader(
-                dataset=list(zip(X_test, y_test)), batch_size=16, shuffle=True)
+                dataset=list(zip(X_test, y_test)), batch_size=32, shuffle=True)
 
             return TRAIN_LOADER, VAL_LOADER
 
