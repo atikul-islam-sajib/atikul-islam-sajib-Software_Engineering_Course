@@ -10,12 +10,12 @@ class DataVisualizer:
     Parameters:
     ----------
     dataFrame: pandas DataFrame, optional
-        The input DataFrame containing the data to be visualised
+        The input DataFrame containing the data to be visualized
             
-    Attrinutes:
+    Attributes:
     ----------
     dataFrame: pandas DataFrame
-        The DataFrame containing this data to be visulaized.
+        The DataFrame containing this data to be visualized.
     """
     def __init__(self, dataFrame = None):
         if isinstance(dataFrame, pd.core.frame.DataFrame):
@@ -30,7 +30,7 @@ class DataVisualizer:
     def _show_pair_plot(self, dataset = None):
         if dataset is not None:
             sns.pairplot(dataset)
-            plt.title("Pairplot of the Iris Classifier")
+            plt.title("Pair plot of the Iris Classifier")
             plt.show()
         
         else:

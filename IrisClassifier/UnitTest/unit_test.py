@@ -7,9 +7,9 @@ warnings.filterwarnings("ignore")
 
 sys.path.append("D:/IrisClassifier/IrisClassifier")
 
-from Training.ModelTrain import Trainer
-from Model.classifier import ANN
-from Dataset.loadDataset import loadDataset
+from training.model_train import Trainer
+from model.classifier import ANN
+from dataset.load_dataset import DataLoader
 
 
 class UnitTesting(unittest.TestCase):

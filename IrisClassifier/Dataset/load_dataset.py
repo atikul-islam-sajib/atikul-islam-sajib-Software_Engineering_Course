@@ -1,17 +1,16 @@
 import pandas as pd
 import sys
-import os
 
 sys.path.append("D:/IrisClassifier/IrisClassifier")
 
-from Analysis.EDA import DataVisualizer
-from Preprocessing.featureEnginnering import preprocess
+from analysis.eda_analysis import DataVisualizer
+from preprocessing.feature_engineering import Preprocess
 
 # This is for check
-from Model.classifier import ANN
-from Training.ModelTrain import Trainer
+from model.classifier import ANN
+from training.model_train import Trainer
 
-class loadDataset:
+class DataLoader:
     """
     A class for loading and working with datasets in CSV format using Pandas
 
@@ -23,7 +22,7 @@ class loadDataset:
     Raises:
     ------
     ValueError:
-        If the provided dataframe does not have a '.csv' file extensions
+        If the provided data frame does not have a '.csv' file extensions
 
     Attributes:
     ----------
@@ -38,9 +37,9 @@ class loadDataset:
 
             self.dataFrame = self._read_csv(dataset=self.dataFrame)
 
-            # Intialise the object
+            # Initialise the object
             self.data_visualization = DataVisualizer(dataFrame=self.dataFrame)
-            self.data_preprocessing = preprocess(dataFrame=self.dataFrame)
+            self.data_preprocessing = Preprocess(dataFrame=self.dataFrame)
 
         else:
             raise "Data Frame should be in the CSV format".title()
@@ -155,7 +154,7 @@ class loadDataset:
 
 
 if __name__ == "__main__":
-    dataset = loadDataset(dataFrame="D:/IrisClassifier/Iris.csv")
+    dataset = DataLoader(dataFrame="D:/IrisClassifier/Iris.csv")
     plot1, plot2 = dataset.display()
     train_loader, test_loader = dataset.preprocess_data()
     
@@ -164,9 +163,9 @@ if __name__ == "__main__":
     model.total_trainable_parameters()
     import warnings
 
-    # Ignore the specific warning about the deprecated softmax dimension choice
+    # Ignore the specific warning about the deprecated soft max dimension choice
     warnings.filterwarnings("ignore")
     trainer = Trainer(epochs = 500, model = model, train_loader = train_loader, val_loader = test_loader)
     trainer.train()
-    trainer.model_performane()
+    trainer.model_performance()
     trainer.model_evaluate(dataloader = test_loader, model = model)

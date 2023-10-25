@@ -6,7 +6,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 
 
-class preprocess:
+class Preprocess:
     """
     preprocess is a class for encoding and scaling a pandas DataFrame
 

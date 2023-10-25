@@ -1,4 +1,4 @@
-import numpy as np
+"""Import all important libraries"""
 import torch
 from sklearn.metrics import (
     accuracy_score,
@@ -9,7 +9,7 @@ from sklearn.metrics import (
 )
 
 
-class modeleEvaluate:
+class ModelEvaluate:
     """
     A class for evaluating Deep Learning models using various metrics
 
@@ -162,10 +162,10 @@ class modeleEvaluate:
         if isinstance(metrics, zip):
             print("\nEvaluation Metrics is given below.\n")
             for acc, pre, re, f1 in metrics:
-                print("accuracy  # {} ".format(acc).upper())
-                print("precision # {} ".format(pre).upper())
-                print("recall    # {} ".format(re).upper())
-                print("f1 score  # {} ".format(f1).upper())
+                print(f"accuracy  # {acc} ".upper())
+                print(f"precision # {pre} ".upper())
+                print(f"recall    # {re} ".upper())
+                print(f"f1 score  # {f1} ".upper())
         else:
             raise "metrics should be in zip format".title()
 
@@ -219,5 +219,5 @@ class modeleEvaluate:
 
 
 if __name__ == "__main__":
-    # modeleEvaluate(dataloader = dataloader)
+    # model evaluate(dataloader = dataloader)
     pass
