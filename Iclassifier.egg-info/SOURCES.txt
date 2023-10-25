@@ -1,8 +1,0 @@
-LICENSE
-README.md
-setup.py
-Iclassifier.egg-info/PKG-INFO
-Iclassifier.egg-info/SOURCES.txt
-Iclassifier.egg-info/dependency_links.txt
-Iclassifier.egg-info/requires.txt
-Iclassifier.egg-info/top_level.txt
