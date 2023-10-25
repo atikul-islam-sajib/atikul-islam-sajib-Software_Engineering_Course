@@ -241,5 +241,6 @@ class Trainer:
         return accuracy, precision, recall, f1, predict, actual
 
 
+# Conditional check whether the package is able to run directly as a main program or not
 if __name__ == "__main__":
     pass
