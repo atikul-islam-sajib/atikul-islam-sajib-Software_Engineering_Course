@@ -3,6 +3,7 @@ import unittest
 import sys
 import warnings
 import io
+import torch
 
 from training.model_train import Trainer
 from model.classifier import ANN
@@ -82,6 +83,21 @@ class UnitTesting(unittest.TestCase):
         self.test_loader = not None
         with self.assertRaises(Exception):
             self.trainer.model_evaluate(dataloader=self.test_loader, model=self.model)
+    
+    def test_ann_model(self):
+        """
+        Test the ANN model creation and forward pass
+        
+        - Define some sample input data
+        - Perform a forward pass through the model
+        - Perform assertion to check the output
+        """
+        self.input_data = torch.randn(1, 4)
+        self.output = self.model(self.input_data)
+    
+        self.assertIsNotNone(self.output)
+        self.assertEqual(self.output.shape, (1, 3))
+        
 
 
 if __name__ == "__main__":
