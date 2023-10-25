@@ -1,15 +1,16 @@
+"""Import the important package"""
 import unittest
 import sys
 import warnings
 import io
 
-warnings.filterwarnings("ignore")
-
-sys.path.append("D:/IrisClassifier/IrisClassifier")
-
 from training.model_train import Trainer
 from model.classifier import ANN
 from dataset.load_dataset import DataLoader
+
+warnings.filterwarnings("ignore")
+
+sys.path.append("D:/IrisClassifier/IrisClassifier")
 
 
 class UnitTesting(unittest.TestCase):
@@ -23,7 +24,7 @@ class UnitTesting(unittest.TestCase):
         - Preprocess the data and create train and test loaders
         - Initialise the ANN model and Trainer
         """
-        self.dataset = loadDataset(dataFrame="D:/IrisClassifier/Iris.csv")
+        self.dataset = DataLoader(dataFrame="D:/IrisClassifier/Iris.csv")
         self.train_loader, self.test_loader = self.dataset.preprocess_data()
         self.model = ANN()
         self.trainer = Trainer(
@@ -44,23 +45,22 @@ class UnitTesting(unittest.TestCase):
         - Check the captured output against as expected message
         """
         self.trainer.train()
-        self.trainer.model_performane()
-        self.trainer.model_evaluate(
-            dataloader=self.test_loader, model=self.model)
+        self.trainer.model_performance()
+        self.trainer.model_evaluate(dataloader=self.test_loader, model=self.model)
 
         (
-            self.accuracy,
-            self.precision,
-            self.recall,
-            self.f1,
-            self.predict,
-            self.actual,
+            accuracy,
+            precision,
+            recall,
+            f1,
+            _,
+            _,
         ) = self.trainer.get_metrics(dataloader=self.test_loader, model=self.model)
 
-        self.assertTrue(self.accuracy >= 0.0 and self.accuracy <= 1.0)
-        self.assertTrue(self.precision >= 0.0 and self.precision <= 1.0)
-        self.assertTrue(self.recall >= 0.0 and self.recall <= 1.0)
-        self.assertTrue(self.f1 >= 0.0 and self.f1 <= 1.0)
+        self.assertTrue(0.0 <= accuracy <= 1.0)
+        self.assertTrue(0.0 <= precision <= 1.0)
+        self.assertTrue(0.0 <= recall <= 1.0)
+        self.assertTrue(0.0 <= f1 <= 1.0)
 
         expected_output = "Expected output message"
 
@@ -75,11 +75,13 @@ class UnitTesting(unittest.TestCase):
 
         self.assertEqual(captured_output, expected_output)
 
-    def test_evaluation_with_valid(self):
+    def test_evaluation_with_invalid(self):
+        """
+        Test the evaluation of the trained model with invalid data
+        """
         self.test_loader = not None
         with self.assertRaises(Exception):
-            self.trainer.model_evaluate(
-                dataloader=self.test_loader, model=self.model)
+            self.trainer.model_evaluate(dataloader=self.test_loader, model=self.model)
 
 
 if __name__ == "__main__":

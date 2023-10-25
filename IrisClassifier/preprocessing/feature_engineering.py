@@ -1,4 +1,3 @@
-import numpy
 import pandas as pd
 import torch
 from torch.utils.data import DataLoader
@@ -34,19 +33,22 @@ class Preprocess:
     """Drop the Id column from the dataset"""
 
     def _drop_column(self, dataset=None):
-        dataset.drop(['Id'], axis=1, inplace = True)
-    
+        dataset.drop(["Id"], axis=1, inplace=True)
+
     # Side effect free functions
-    def _drop_feature(self, dataset = None):
-        return dataset.drop(['Id'], axis = 1)
+    def _drop_feature(self, dataset=None):
+        return dataset.drop(["Id"], axis=1)
 
     # Closures + Function as return values
     def _do_encoding_and_scaling(self, dataset=None):
         if dataset is not None:
             # Do the encoding for the target feature
-            dataset.iloc[:, -1] = dataset.iloc[:, -1].\
-                map({species: index for index, species in enumerate(
-                    dataset.iloc[:, -1].unique())})
+            dataset.iloc[:, -1] = dataset.iloc[:, -1].map(
+                {
+                    species: index
+                    for index, species in enumerate(dataset.iloc[:, -1].unique())
+                }
+            )
             # Create a function named scaling that will return scaling of the Independent Features
 
             def scaling(df):
@@ -61,6 +63,7 @@ class Preprocess:
             return dataset, scaling
         else:
             raise "dataset is empty while calling encoding".title()
+
     """
         Specific target class extraction
         
@@ -98,58 +101,77 @@ class Preprocess:
         X = dataset.iloc[:, :-1].values
         y = dataset.iloc[:, -1].values
         # If we want filter based target class
-        filter_X, filter_y = self._filter_target_class(
-            X, y, self._filter_target_class)
+        filter_X, filter_y = self._filter_target_class(X, y, self._filter_target_class)
 
         return filter_X, filter_y
-    """
-    Split the dataset into train and test
-    
-    Parameters:
-    -----------
-    dataset : Pandas DataFrame, optional
-        The dataset to be splitted. If not provided then the class attribute dataFrame is used
-    
-    Returns:
-    --------
-        X_train : The feature of training set
-        y_train : The feature of training set
-        X_test  : The feature of testing set
-        y_test  : The feature of testing set
-    """
 
     def _train_test_split(self, dataset=None):
+        """
+        Split the dataset into train and test
+
+        Parameters:
+        -----------
+        dataset : Pandas DataFrame, optional
+            The dataset to be splitted. If not provided then the class attribute dataFrame is used
+
+        Returns:
+        --------
+            X_train : The feature of training set
+            y_train : The feature of training set
+            X_test  : The feature of testing set
+            y_test  : The feature of testing set
+        """
         try:
-            X = dataset.iloc[:, :-1].values
-            y = dataset.iloc[:, -1].values
+            independent = dataset.iloc[:, :-1].values
+            dependent = dataset.iloc[:, -1].values
 
-            X_train, X_test, y_train, y_test = train_test_split(
-                X, y, test_size=0.25, random_state=42)
-
-            TRAIN_LOADER, VAL_LOADER = self._data_loader(
-                X_train=X_train, X_test=X_test, y_train=y_train, y_test=y_test
+            x_train, x_test, y_train, y_test = train_test_split(
+                independent, dependent, test_size=0.25, random_state=42
             )
-            return X_train, X_test, y_train, y_test, TRAIN_LOADER, VAL_LOADER
+
+            train_loader, val_loader = self._data_loader(
+                X_train=x_train, X_test=x_test, y_train=y_train, y_test=y_test
+            )
+            return x_train, x_test, y_train, y_test, train_loader, val_loader
 
         except Exception as e:
-            print("The exception is caught : {} ".format(e)).title()
+            print(f"The exception is caught : {e} ").title()
 
     def _data_loader(self, X_train=None, X_test=None, y_train=None, y_test=None):
-        if X_train is not None and X_test is not None and y_train is not None and y_test is not None:
-            X_train = torch.tensor(
-                data=X_train, dtype=torch.float32)
-            X_test = torch.tensor(
-                data=X_test, dtype=torch.float32)
+        """
+        Split the dataset into train and test
 
-            TRAIN_LOADER = DataLoader(
-                dataset=list(zip(X_train, y_train)), batch_size=32, shuffle=True)
-            VAL_LOADER = DataLoader(
-                dataset=list(zip(X_test, y_test)), batch_size=32, shuffle=True)
+        Parameters:
+        -----------
+        dataset : Pandas DataFrame, optional
+            The dataset to be splitted. If not provided then the class attribute dataFrame is used
 
-            return TRAIN_LOADER, VAL_LOADER
+        Returns:
+        --------
+            train loader : The feature of training set
+            val loader : The feature of training set
+        """
+        if (
+            X_train is not None
+            and X_test is not None
+            and y_train is not None
+            and y_test is not None
+        ):
+            X_train = torch.tensor(data=X_train, dtype=torch.float32)
+            X_test = torch.tensor(data=X_test, dtype=torch.float32)
+
+            train_loader = DataLoader(
+                dataset=list(zip(X_train, y_train)), batch_size=32, shuffle=True
+            )
+            val_loader = DataLoader(
+                dataset=list(zip(X_test, y_test)), batch_size=32, shuffle=True
+            )
+
+            return train_loader, val_loader
 
         else:
             raise "Splitting is not done successfully".title()
+
 
 # if __name__ == "__main__":
 #     pass
