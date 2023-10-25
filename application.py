@@ -79,7 +79,7 @@ def submit_file():
     elif predict == 1:
         return render_template("index.html", result="Iris-versicolor")
     else:
-        return render_template("index.html", result="Iris-versicolor")
+        return render_template("index.html", result="Iris-virginica")
 
 
 if __name__ == "__main__":
