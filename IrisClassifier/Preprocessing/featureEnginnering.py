@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 
 class preprocess:
     """
-    preprocess is a class for encoing and scaling a pandas DataFrame
+    preprocess is a class for encoding and scaling a pandas DataFrame
 
     Parameters:
     ---------
@@ -21,7 +21,7 @@ class preprocess:
         The DataFrame containing the data to be processed
 
     new_dataset : pandas DataFrame
-        The processed DataFrame after encong and scaling
+        The processed DataFrame after encoding and scaling
     """
 
     def __init__(self, dataFrame=None):
@@ -29,7 +29,7 @@ class preprocess:
             self.datFrame = dataFrame
             # self.new_dataset = self._do_encoding(dataset = self.datFrame)
         else:
-            raise "Data Frame should be in the pandas dataframe".title()
+            raise "Data Frame should be in the pandas data frame".title()
 
     """Drop the Id column from the dataset"""
 
@@ -47,7 +47,7 @@ class preprocess:
             dataset.iloc[:, -1] = dataset.iloc[:, -1].\
                 map({species: index for index, species in enumerate(
                     dataset.iloc[:, -1].unique())})
-            # Create a function named sacling that will return sacling of the Independent Features
+            # Create a function named scaling that will return scaling of the Independent Features
 
             def scaling(df):
                 scaler = StandardScaler()
@@ -60,9 +60,9 @@ class preprocess:
 
             return dataset, scaling
         else:
-            raise "dataset is empty while calling ecoding".title()
+            raise "dataset is empty while calling encoding".title()
     """
-        Specific traget class extraction
+        Specific target class extraction
         
         Parameters:
         -----------
@@ -76,9 +76,9 @@ class preprocess:
         filter_X : list
             It determines the independent features based on filter
         filter_y : list
-            It determines the dependent features based on fileter
+            It determines the dependent features based on filter
     """
-    # Gigher order functions
+    # Higher order functions
 
     def _specific_target_class(self, X, y, func):
         # Take the target columns
@@ -149,7 +149,7 @@ class preprocess:
             return TRAIN_LOADER, VAL_LOADER
 
         else:
-            raise "Splitting is not done succeessfully".title()
+            raise "Splitting is not done successfully".title()
 
 # if __name__ == "__main__":
 #     pass

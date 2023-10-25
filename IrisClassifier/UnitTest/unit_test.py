@@ -1,7 +1,6 @@
 import unittest
 import sys
 import warnings
-import pytest
 import io
 
 warnings.filterwarnings("ignore")
@@ -11,8 +10,6 @@ sys.path.append("D:/IrisClassifier/IrisClassifier")
 from Training.ModelTrain import Trainer
 from Model.classifier import ANN
 from Dataset.loadDataset import loadDataset
-from Preprocessing.featureEnginnering import preprocess
-from Analysis.EDA import DataVisualizer
 
 
 class UnitTesting(unittest.TestCase):
@@ -29,8 +26,12 @@ class UnitTesting(unittest.TestCase):
         self.dataset = loadDataset(dataFrame="D:/IrisClassifier/Iris.csv")
         self.train_loader, self.test_loader = self.dataset.preprocess_data()
         self.model = ANN()
-        self.trainer = Trainer(epochs=500, model=self.model,
-                               train_loader=self.train_loader, val_loader=self.test_loader)
+        self.trainer = Trainer(
+            epochs=500,
+            model=self.model,
+            train_loader=self.train_loader,
+            val_loader=self.test_loader,
+        )
 
     def test_evaluation_with_valid(self):
         """
@@ -47,17 +48,19 @@ class UnitTesting(unittest.TestCase):
         self.trainer.model_evaluate(
             dataloader=self.test_loader, model=self.model)
 
-        self.accuracy, self.precision, self.recall, self.f1, self.predict, self.actual = self.trainer.get_metrics(
-            dataloader=self.test_loader, model=self.model)
+        (
+            self.accuracy,
+            self.precision,
+            self.recall,
+            self.f1,
+            self.predict,
+            self.actual,
+        ) = self.trainer.get_metrics(dataloader=self.test_loader, model=self.model)
 
-        self.assertTrue(
-            self.accuracy >= 0.0 and self.accuracy <= 1.0)
-        self.assertTrue(
-            self.precision >= 0.0 and self.precision <= 1.0)
-        self.assertTrue(
-            self.recall >= 0.0 and self.recall <= 1.0)
-        self.assertTrue(
-            self.f1 >= 0.0 and self.f1 <= 1.0)
+        self.assertTrue(self.accuracy >= 0.0 and self.accuracy <= 1.0)
+        self.assertTrue(self.precision >= 0.0 and self.precision <= 1.0)
+        self.assertTrue(self.recall >= 0.0 and self.recall <= 1.0)
+        self.assertTrue(self.f1 >= 0.0 and self.f1 <= 1.0)
 
         expected_output = "Expected output message"
 
@@ -71,8 +74,6 @@ class UnitTesting(unittest.TestCase):
         captured_output = captured_output.strip()
 
         self.assertEqual(captured_output, expected_output)
-
-    """"Test the evaluation with None as a validation data loader"""
 
     def test_evaluation_with_valid(self):
         self.test_loader = not None

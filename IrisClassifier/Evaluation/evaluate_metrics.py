@@ -1,6 +1,12 @@
 import numpy as np
 import torch
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, classification_report
+from sklearn.metrics import (
+    accuracy_score,
+    precision_score,
+    recall_score,
+    f1_score,
+    classification_report,
+)
 
 
 class modeleEvaluate:
@@ -25,6 +31,7 @@ class modeleEvaluate:
             self.f1 = None
         else:
             raise "dataloader should be in the torch dataloader format".title()
+
     """
     Computes the number of correct predictions
         
@@ -46,6 +53,7 @@ class modeleEvaluate:
             return correct_predict
         else:
             raise "pass the predict & actual value in correct format".title()
+
     """
     Computes the number of correct predictions
         
@@ -63,6 +71,7 @@ class modeleEvaluate:
 
     def _evaluate_accuracy(self, predict=None, actual=None):
         return accuracy_score(actual, predict)
+
     """
     Computes the number of correct predictions
         
@@ -78,7 +87,8 @@ class modeleEvaluate:
     """
 
     def _evaluate_precision(self, predict=None, actual=None):
-        return precision_score(actual, predict, average='macro')
+        return precision_score(actual, predict, average="macro")
+
     """
     Computes the number of correct predictions
         
@@ -94,7 +104,8 @@ class modeleEvaluate:
     """
 
     def _evaluate_recall(self, predict=None, actual=None):
-        return recall_score(actual, predict, average='macro')
+        return recall_score(actual, predict, average="macro")
+
     """
     Computes the number of correct predictions
         
@@ -110,7 +121,8 @@ class modeleEvaluate:
     """
 
     def _evaluate_f1(self, predict=None, actual=None):
-        return f1_score(actual, predict, average='macro')
+        return f1_score(actual, predict, average="macro")
+
     """
     Computes the number of correct predictions
         
@@ -128,14 +140,14 @@ class modeleEvaluate:
     def _evaluation_metrics(self, predict=None, actual=None):
         if predict is not None and actual is not None:
             accuracy = self._evaluate_accuracy(predict=predict, actual=actual)
-            precision = self._evaluate_precision(
-                predict=predict, actual=actual)
+            precision = self._evaluate_precision(predict=predict, actual=actual)
             recall = self._evaluate_recall(predict=predict, actual=actual)
             f1 = self._evaluate_f1(predict=predict, actual=actual)
 
             return accuracy, precision, recall, f1
         else:
             raise "pass the predict & actual value in correct format".title()
+
     """
     Displays evaluation metrics
     
@@ -156,6 +168,7 @@ class modeleEvaluate:
                 print("f1 score  # {} ".format(f1).upper())
         else:
             raise "metrics should be in zip format".title()
+
     """
     Computes the number of correct predictions
         
@@ -167,6 +180,7 @@ class modeleEvaluate:
 
     def _classification_report_show(self, predict=None, actual=None):
         print(classification_report(actual, predict))
+
     """
     Evaluates the NN model using provided data loader 
     """
@@ -176,17 +190,21 @@ class modeleEvaluate:
             predict = []
             actual = []
             compute_correct_predict = []
-            for (X_batch, y_batch) in self.dataloader:
+            for X_batch, y_batch in self.dataloader:
                 predicted = self.model(X_batch)
                 predicted = torch.argmax(predicted, dim=1)
                 predict.extend(predicted)
                 actual.extend(y_batch)
-                compute_correct_predict.append(self._compute_correct_prediction(
-                    predict=predict, actual=actual).numpy())
+                compute_correct_predict.append(
+                    self._compute_correct_prediction(
+                        predict=predict, actual=actual
+                    ).numpy()
+                )
 
             accuracy, precision, recall, f1 = self._evaluation_metrics(
-                predict=predict, actual=actual)
-            
+                predict=predict, actual=actual
+            )
+
             return accuracy, precision, recall, f1, predict, actual
 
         else:
