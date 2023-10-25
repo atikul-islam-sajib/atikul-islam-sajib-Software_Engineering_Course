@@ -3,14 +3,6 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# Ignore all files except the "eggs" and "__pycache__" directories
-*
-!*/
-!.gitignore  # Keep the .gitignore file itself
-!/__pycache__/
-!/eggs/
-
-
 # C extensions
 *.so
 
