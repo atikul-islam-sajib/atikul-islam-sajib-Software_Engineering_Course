@@ -1,0 +1,13 @@
+Name                     Stmts   Miss  Cover
+--------------------------------------------
+classifier.py               39     39     0%
+eda_analysis.py             25     25     0%
+evaluate_metrics.py         74     74     0%
+feature_engineering.py      57     57     0%
+iris\data.py                13     13     0%
+iris\model.py               11     11     0%
+iris\model_train.py          0      0   100%
+iris\train.py               11     11     0%
+load_dataset.py             76     76     0%
+--------------------------------------------
+TOTAL                      306    306     0%

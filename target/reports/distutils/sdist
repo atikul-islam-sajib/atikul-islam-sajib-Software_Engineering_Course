@@ -1,0 +1,41 @@
+running clean
+'build\lib' does not exist -- can't clean it
+'build\bdist.win-amd64' does not exist -- can't clean it
+'build\scripts-3.11' does not exist -- can't clean it
+running sdist
+running egg_info
+creating iris_classifier.egg-info
+writing iris_classifier.egg-info\PKG-INFO
+writing dependency_links to iris_classifier.egg-info\dependency_links.txt
+writing namespace_packages to iris_classifier.egg-info\namespace_packages.txt
+writing top-level names to iris_classifier.egg-info\top_level.txt
+writing manifest file 'iris_classifier.egg-info\SOURCES.txt'
+reading manifest file 'iris_classifier.egg-info\SOURCES.txt'
+writing manifest file 'iris_classifier.egg-info\SOURCES.txt'
+warning: sdist: standard file not found: should have one of README, README.rst, README.txt, README.md
+
+running check
+creating iris_classifier-1.0.dev0
+creating iris_classifier-1.0.dev0\iris
+creating iris_classifier-1.0.dev0\iris_classifier.egg-info
+copying files to iris_classifier-1.0.dev0...
+copying classifier.py -> iris_classifier-1.0.dev0
+copying eda_analysis.py -> iris_classifier-1.0.dev0
+copying evaluate_metrics.py -> iris_classifier-1.0.dev0
+copying feature_engineering.py -> iris_classifier-1.0.dev0
+copying load_dataset.py -> iris_classifier-1.0.dev0
+copying setup.py -> iris_classifier-1.0.dev0
+copying iris\data.py -> iris_classifier-1.0.dev0\iris
+copying iris\model.py -> iris_classifier-1.0.dev0\iris
+copying iris\model_train.py -> iris_classifier-1.0.dev0\iris
+copying iris\train.py -> iris_classifier-1.0.dev0\iris
+copying iris_classifier.egg-info\PKG-INFO -> iris_classifier-1.0.dev0\iris_classifier.egg-info
+copying iris_classifier.egg-info\SOURCES.txt -> iris_classifier-1.0.dev0\iris_classifier.egg-info
+copying iris_classifier.egg-info\dependency_links.txt -> iris_classifier-1.0.dev0\iris_classifier.egg-info
+copying iris_classifier.egg-info\namespace_packages.txt -> iris_classifier-1.0.dev0\iris_classifier.egg-info
+copying iris_classifier.egg-info\top_level.txt -> iris_classifier-1.0.dev0\iris_classifier.egg-info
+copying iris_classifier.egg-info\zip-safe -> iris_classifier-1.0.dev0\iris_classifier.egg-info
+Writing iris_classifier-1.0.dev0\setup.cfg
+creating dist
+Creating tar archive
+removing 'iris_classifier-1.0.dev0' (and everything under it)
