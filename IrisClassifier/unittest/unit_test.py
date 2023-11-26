@@ -75,6 +75,16 @@ class UnitTesting(unittest.TestCase):
         captured_output = captured_output.strip()
 
         self.assertEqual(captured_output, expected_output)
+        
+    def test_trainable_parameters(self):
+        """
+        Test the total trainable parameters with the model.
+        - Define the model
+        - Call the method named `total_trainable_parameters`
+        """
+        total_trainable_parameters = 1355
+        
+        self.assertEqual(self.model.total_trainable_parameters(), total_trainable_parameters)
 
     def test_evaluation_with_invalid(self):
         """
