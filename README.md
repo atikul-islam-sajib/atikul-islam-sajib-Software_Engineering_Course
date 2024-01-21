@@ -68,18 +68,38 @@ CCD improved usage and readability as well as better maintain the code an approp
 
 A:
 
-1. <a href = "https://github.com/atikul-islam-sajib/atikul-islam-sajib-Software_Engineering_Course/blob/main/CCD/appropriate%20indention%20code%20from%20unit-test%20code.png">appropriate indention code </a>
+1. <a href = "https://github.com/atikul-islam-sajib/atikul-islam-sajib-Software_Engineering_Course/blob/main/CCD/appropriate%20indention%20code%20from%20unit-test%20code.png">appropriate indention code - screenshot</a>
+
+or 
+
+<a href = "https://github.com/atikul-islam-sajib/atikul-islam-sajib-Software_Engineering_Course/blob/main/IrisClassifier/unittest/unit_test.py#L28C1-L36C10">appropriate indention code - from code</a>
 
 
-2. <a href = "https://github.com/atikul-islam-sajib/atikul-islam-sajib-Software_Engineering_Course/blob/main/CCD/small%20functions%20and%20methods%20from%20evaluate_metrics%20file.png">small functions and methods</a>
+2. <a href = "https://github.com/atikul-islam-sajib/atikul-islam-sajib-Software_Engineering_Course/blob/main/CCD/small%20functions%20and%20methods%20from%20evaluate_metrics%20file.png">small functions and methods - screenshot</a>
+
+or
+
+<a href = "https://github.com/atikul-islam-sajib/atikul-islam-sajib-Software_Engineering_Course/blob/main/IrisClassifier/evaluation/evaluate_metrics.py#L91C1-L126C58">small functions and methods - from code</a>
 
 
-3. <a href = "https://github.com/atikul-islam-sajib/atikul-islam-sajib-Software_Engineering_Course/blob/main/CCD/use%20comments%20and%20doc%20string%20from%20model%20train%20file.png">use comments and doc string </a>
+3. <a href = "https://github.com/atikul-islam-sajib/atikul-islam-sajib-Software_Engineering_Course/blob/main/CCD/use%20comments%20and%20doc%20string%20from%20model%20train%20file.png">use comments and doc string - screenshot</a>
 
-4. <a href = "https://github.com/atikul-islam-sajib/atikul-islam-sajib-Software_Engineering_Course/blob/main/CCD/appropriate%20name%20for%20variable%20and%20method.png">appropriate name for variable and method</a>
+or 
+
+<a href = "https://github.com/atikul-islam-sajib/atikul-islam-sajib-Software_Engineering_Course/blob/main/IrisClassifier/training/model_train.py#L212C1-L246C9">use comments and doc string - from code</a>
+
+4. <a href = "https://github.com/atikul-islam-sajib/atikul-islam-sajib-Software_Engineering_Course/blob/main/CCD/appropriate%20name%20for%20variable%20and%20method.png">appropriate name for variable and method - screenshot</a>
+
+or 
+
+<a href = "https://github.com/atikul-islam-sajib/atikul-islam-sajib-Software_Engineering_Course/blob/main/IrisClassifier/model/classifier.py#L30C1-L61C1">appropriate name for variable and method - from code</a>
 
 
-5. <a href = "https://github.com/atikul-islam-sajib/atikul-islam-sajib-Software_Engineering_Course/blob/main/CCD/Error%20Handling%20from%20model_train%20file.png">Error Handling and Exception </a>
+5. <a href = "https://github.com/atikul-islam-sajib/atikul-islam-sajib-Software_Engineering_Course/blob/main/CCD/Error%20Handling%20from%20model_train%20file.png">Error Handling and Exception - screenshot</a>
+
+or 
+
+<a href = "https://github.com/atikul-islam-sajib/atikul-islam-sajib-Software_Engineering_Course/blob/main/IrisClassifier/training/model_train.py#L42C1-L57C72">Error Handling and Exception - from code</a>
 
 
 B:
