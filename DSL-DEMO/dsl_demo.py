@@ -1,6 +1,7 @@
 """Import all important package"""
 import torch
 import torch.nn as nn
+import re
 
 
 class DSL:
@@ -81,6 +82,7 @@ class DSL:
         - models and parameters(that is dict format)
         """
         lines = dsl_input.strip().split("\n")
+        result = re.findall(r".+?(?=\n|$)", lines)
 
         for each_line in lines:
             tokens = each_line.split()
