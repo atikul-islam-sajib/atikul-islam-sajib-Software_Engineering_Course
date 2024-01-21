@@ -1,4 +1,4 @@
-Iris Classifier
+# Iris Classifier
 
 This repository provides a Python script to train the neural network model for classifying Iris Flower. The dataset is used for this classification task. 
 
@@ -42,7 +42,7 @@ Domain Driven Design(DDD): Domain-driven design (DDD) is a software design appro
 
 <a href = "https://github.com/atikul-islam-sajib/atikul-islam-sajib-Software_Engineering_Course/blob/main/DDD/DDD.pdf">Click link for the DDD </a>
 
-4. # Metrices:
+# 4. Metrices:
 
 Python offers some linters and formatters, for example, Flake8, pyflakes, pycodestyle, pylint. Among them I used `pycodestyle` and `pylint`. Those check code base against PEP8 programming style, programming errors(eg, library impoted but not used, undefined names, cyclomatic complexity etc).
 
