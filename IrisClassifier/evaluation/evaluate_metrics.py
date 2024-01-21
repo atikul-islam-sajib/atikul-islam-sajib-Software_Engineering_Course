@@ -70,7 +70,9 @@ class ModelEvaluate:
     # Only final data structures
 
     def _evaluate_accuracy(self, predict=None, actual=None):
-        return accuracy_score(actual, predict)
+        correct = sum(p == a for p, a in zip(predict, actual))
+        accuracy = correct/len(actual)
+        return accuracy
 
     """
     Computes the number of correct predictions
