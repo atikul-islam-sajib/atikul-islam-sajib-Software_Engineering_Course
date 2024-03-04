@@ -63,7 +63,11 @@ The screenshot is given below:
 <a href = "https://github.com/atikul-islam-sajib/atikul-islam-sajib-Software_Engineering_Course/blob/main/metrics/pylint-unit-test.png">Click link for displaying screenshot - using pylint </a>
 
 
-I also used `SonarCloud` to analyze my code because it brings automated, thorough code reviews and early issue detection into my development process. 
+
+I also used `SonarCloud` to analyze my code because it brings automated, thorough code reviews and early issue detection into my development process.
+
+The metrics belongs to my project is given below using SonarCloud:
+------------------------------------------------------------------
 
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=atikul-islam-sajib_atikul-islam-sajib-Software_Engineering_Course&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=atikul-islam-sajib_atikul-islam-sajib-Software_Engineering_Course)
 
