@@ -2,6 +2,8 @@
 
 This repository provides a Python script to train the neural network model for classifying Iris Flower. The dataset is used for this classification task. 
 
+![Iris Classifier web app](https://github.com/atikul-islam-sajib/atikul-islam-sajib-Software_Engineering_Course/blob/main/CCD/iris.png)
+
 # Project Installation & Installation Depedencies:
 
 . Clone the repo: `https://github.com/atikul-islam-sajib/atikul-islam-sajib-Software_Engineering_Course.git`
