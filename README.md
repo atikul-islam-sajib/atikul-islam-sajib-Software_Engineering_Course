@@ -63,6 +63,38 @@ The screenshot is given below:
 <a href = "https://github.com/atikul-islam-sajib/atikul-islam-sajib-Software_Engineering_Course/blob/main/metrics/pylint-unit-test.png">Click link for displaying screenshot - using pylint </a>
 
 
+I also used `SonarCloud` to analyze my code because it brings automated, thorough code reviews and early issue detection into my development process. 
+
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=atikul-islam-sajib_atikul-islam-sajib-Software_Engineering_Course&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=atikul-islam-sajib_atikul-islam-sajib-Software_Engineering_Course)
+
+
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=atikul-islam-sajib_atikul-islam-sajib-Software_Engineering_Course&metric=bugs)](https://sonarcloud.io/summary/new_code?id=atikul-islam-sajib_atikul-islam-sajib-Software_Engineering_Course)
+
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=atikul-islam-sajib_atikul-islam-sajib-Software_Engineering_Course&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=atikul-islam-sajib_atikul-islam-sajib-Software_Engineering_Course)
+
+
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=atikul-islam-sajib_atikul-islam-sajib-Software_Engineering_Course&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=atikul-islam-sajib_atikul-islam-sajib-Software_Engineering_Course)
+
+
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=atikul-islam-sajib_atikul-islam-sajib-Software_Engineering_Course&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=atikul-islam-sajib_atikul-islam-sajib-Software_Engineering_Course)
+
+
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=atikul-islam-sajib_atikul-islam-sajib-Software_Engineering_Course&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=atikul-islam-sajib_atikul-islam-sajib-Software_Engineering_Course)
+
+
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=atikul-islam-sajib_atikul-islam-sajib-Software_Engineering_Course&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=atikul-islam-sajib_atikul-islam-sajib-Software_Engineering_Course)
+
+
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=atikul-islam-sajib_atikul-islam-sajib-Software_Engineering_Course&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=atikul-islam-sajib_atikul-islam-sajib-Software_Engineering_Course)
+
+
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=atikul-islam-sajib_atikul-islam-sajib-Software_Engineering_Course&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=atikul-islam-sajib_atikul-islam-sajib-Software_Engineering_Course)
+
+
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=atikul-islam-sajib_atikul-islam-sajib-Software_Engineering_Course&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=atikul-islam-sajib_atikul-islam-sajib-Software_Engineering_Course)
+
+
 
 # 5. Clean Code Development:
 
