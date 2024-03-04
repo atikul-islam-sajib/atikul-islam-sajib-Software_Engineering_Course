@@ -3,7 +3,7 @@
     # This is dead code
    ------------------------
   
-    # def disply():
+    # def display():
     #   return "hello world"
     
     def display2():
@@ -73,10 +73,10 @@
   DRY: solve:
   ----------
   def area(radius)
-    return 2 * 3.14 **radius
+    return 3.14 * radius **2
 
   def circle(radius)
-    return 2 * 3.14 * radius
+    return 3.14 * radius **2
   ```
 6. Explanatory variables
   Using well-named variables makes the code self-explanatory 
@@ -126,11 +126,11 @@
   def addition(num1, num2):
   """
   Parameters:
-  num1(int/float): The first number
-  num2(int/float): The second number
-
-  Returns:
-  int/float: The sum of num1 and num2
+     num1(int/float): The first number
+     num2(int/float): The second number
+   
+     Returns:
+     int/float: The sum of num1 and num2
   """
   ```
 10. In functions and classes: Use parameter types and return types
