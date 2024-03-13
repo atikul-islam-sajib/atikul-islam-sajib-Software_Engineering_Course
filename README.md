@@ -46,7 +46,7 @@ Domain Driven Design(DDD): Domain-driven design (DDD) is a software design appro
 
 <a href = "https://github.com/atikul-islam-sajib/atikul-islam-sajib-Software_Engineering_Course/blob/main/DDD/core-domain.jpg">Click link for the Core Domain </a>
 
-<a href = "https://github.com/atikul-islam-sajib/atikul-islam-sajib-Software_Engineering_Course/blob/main/DDD/context-mapping.png">Click link for the Context mapping </a>
+<a href = "https://github.com/atikul-islam-sajib/atikul-islam-sajib-Software_Engineering_Course/blob/main/DDD/context-mapping-new.png">Click link for the Context mapping </a>
 
 
 # 4. Metrices:
